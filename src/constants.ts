@@ -1,3 +1,4 @@
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const URL = 'http://localhost:5000';
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
 export const FETCH_MAILS = 'FETCH_MAILS';

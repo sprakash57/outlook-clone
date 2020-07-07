@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, FETCH_MAILS } from "../constants";
+import { LOGIN, FETCH_MAILS, LOGOUT } from "../constants";
 import { combineReducers } from "redux";
 
 const initState = {
@@ -9,12 +9,13 @@ const initState = {
 const reducer = (state = initState, action: any) => {
     const { type, payload } = action;
     switch (type) {
-        case LOGIN_SUCCESS:
+        case LOGIN:
+        case LOGOUT:
             return { ...state, authData: payload }
         case FETCH_MAILS:
             return { ...state, mails: payload }
         default:
-            return state
+            return state;
     }
 }
 
