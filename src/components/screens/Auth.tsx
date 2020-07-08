@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { IState, IReducer } from '../../interfaces';
 import { bindActionCreators, Dispatch, AnyAction } from 'redux';
 import { login } from '../../actions'
+import Alert from '../common/Alert';
+import { Redirect } from 'react-router-dom';
 
 interface IProps {
     login(email: string, password: string): void,
@@ -26,6 +28,12 @@ const Auth: React.FC<IProps> = (props) => {
         setFormFields({ ...formFields, [e.currentTarget.name]: e.currentTarget.value });
     }
 
+    const { message, status, isAuthenticated } = props.store.authData;
+
+    if (isAuthenticated) {
+        return <Redirect to='/mailbox' />
+    }
+
     return (
         <main className='login-form'>
             <form onSubmit={handleSubmit}>
@@ -35,8 +43,6 @@ const Auth: React.FC<IProps> = (props) => {
                         type="text"
                         name="email"
                         placeholder="Email"
-                        value={formFields.email}
-                        onChange={handleChange}
                     />
                 </div>
                 <div className="form-group">
@@ -44,14 +50,13 @@ const Auth: React.FC<IProps> = (props) => {
                         type="password"
                         name="password"
                         placeholder="Password"
-                        value={formFields.password}
-                        onChange={handleChange}
                     />
                 </div>
                 <div className="form-group">
                     <button type='submit' className="btn btn-primary btn-block">Enter</button>
                 </div>
             </form>
+            {message && <Alert msg={message} status={status} />}
         </main>
     )
 }
@@ -59,6 +64,6 @@ const Auth: React.FC<IProps> = (props) => {
 const mapStateToProps = (state: IState) => ({
     store: state.reducer
 });
-const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({ login }, dispatch)
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => bindActionCreators({ login }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);

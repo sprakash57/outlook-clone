@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 
 const initState = {
     mails: [],
-    authData: null
+    authData: { isAuthenticated: false, message: '', status: 500 }
 }
 
 const reducer = (state = initState, action: any) => {

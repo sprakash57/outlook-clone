@@ -13,11 +13,9 @@ export interface IAuth {
 }
 
 export interface IText {
-    value: string,
     placeholder: string,
     type: string,
     name: string,
-    onChange(e: React.FormEvent<HTMLInputElement>): void,
 }
 
 export interface IReducer {

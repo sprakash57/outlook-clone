@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IText } from '../../interfaces';
 
-const Input = ({ value, name, type, placeholder, onChange }: IText) => {
+const Input = ({ name, type, placeholder }: IText) => {
+
+    const [field, setField] = useState('');
 
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-        onChange(e);
+        setField(e.currentTarget.value);
     }
 
     return <input
         type={type}
-        value={value}
+        value={field}
         name={name}
         className="form-control"
         placeholder={placeholder}

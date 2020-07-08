@@ -1,13 +1,11 @@
 const http = require('http');
 const url = require('url');
-const { parse } = require('querystring');
 const mails = require('./db');
 
 const PORT = 5000;
 const app = http.createServer((req, res) => {
     const headers = {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST",
         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
         "Access-Control-Max-Age": 259200,
         "Content-Type": "application/json"
@@ -19,18 +17,18 @@ const app = http.createServer((req, res) => {
     }
 
     if (req.method === 'POST') {
-        let body = '', formData = '', result = { isAuthenticated: true, message: 'Logged in successfully', status: 200 };
+        let body = '', result = { isAuthenticated: false, message: 'Invalid credentials', status: 401 };
         req.on('data', chunk => {
             body += chunk.toString();
         });
         req.on('end', () => {
-            formData = parse(body);
-            if (formData.email !== 'jhon@doe.com' || formData.password !== 'dummy') {
-                result = { isAuthenticated: false, message: 'Invalid credentials', status: 401 }
+            const { email, password } = JSON.parse(body);
+            if (email === 'jhon@doe.com' && password === 'dummy') {
+                result = { isAuthenticated: true, message: 'Logged in successfully', status: 200 }
             }
+            res.writeHead(result.status, headers);
+            res.end(JSON.stringify(result));
         });
-        res.writeHead(result.status, headers);
-        res.end(JSON.stringify(result));
     }
 
     if (req.method === 'GET') {
@@ -46,8 +44,6 @@ const app = http.createServer((req, res) => {
                 res.end();
         }
     }
-    res.writeHead(405, headers);
-    res.end(`${req.method} is not allowed`);
 });
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
