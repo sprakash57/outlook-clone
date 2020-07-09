@@ -32,3 +32,9 @@ export const fetchMails = () => async (dispatch: any) => {
         console.log(error);
     }
 }
+
+export const reply = (text: string, id: number) => (dispatch: any, getState: any) => {
+    const { reducer: { mails } } = getState();
+    mails[id].replies.push(text);
+    dispatch({ type: FETCH_MAILS, payload: mails });
+}

@@ -3,7 +3,8 @@ export interface IMails {
     title: string,
     desc: string,
     archived: boolean,
-    recent: boolean
+    recent: boolean,
+    replies: string[]
 }
 
 export interface IAuth {
