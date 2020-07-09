@@ -6,6 +6,7 @@ type IProps = { mail: IMails, onSelect(id: string): void }
 const MailItem: React.FC<IProps> = ({ mail, onSelect }: IProps) => {
 
     const handleClick = () => {
+        console.log("****", mail.id);
         onSelect(mail.id);
     }
 

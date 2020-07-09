@@ -21,7 +21,8 @@ export interface IText {
 
 export interface IReducer {
     mails: IMails[],
-    authData: IAuth
+    authData: IAuth,
+    deleted: boolean
 }
 
 export interface IState {

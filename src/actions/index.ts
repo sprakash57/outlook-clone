@@ -1,4 +1,4 @@
-import { URL, LOGIN, LOGOUT, FETCH_MAILS } from "../constants"
+import { URL, LOGIN, LOGOUT, LOAD_MAILS, DELETE } from "../constants"
 import { IAuth, IMails } from "../interfaces";
 
 export const login = (email: string, password: string) => async (dispatch: any) => {
@@ -27,7 +27,7 @@ export const fetchMails = () => async (dispatch: any) => {
     try {
         const buffer = await fetch(URL);
         response = await buffer.json();
-        dispatch({ type: FETCH_MAILS, payload: response });
+        dispatch({ type: LOAD_MAILS, payload: response });
     } catch (error) {
         console.log(error);
     }
@@ -36,5 +36,11 @@ export const fetchMails = () => async (dispatch: any) => {
 export const reply = (text: string, id: number) => (dispatch: any, getState: any) => {
     const { reducer: { mails } } = getState();
     mails[id].replies.push(text);
-    dispatch({ type: FETCH_MAILS, payload: mails });
+    dispatch({ type: LOAD_MAILS, payload: mails });
+}
+
+export const deleteMail = (id: string) => (dispatch: any, getState: any) => {
+    let { reducer: { mails } } = getState();
+    mails = mails.filter((mail: IMails) => mail.id !== id);
+    dispatch({ type: DELETE, payload: mails });
 }
