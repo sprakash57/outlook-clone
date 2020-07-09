@@ -14,18 +14,9 @@ interface IProps {
 
 const Auth: React.FC<IProps> = (props) => {
 
-    const [formFields, setFormFields] = useState({
-        email: '',
-        password: ''
-    });
-
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         props.login(e.currentTarget.email.value, e.currentTarget.password.value);
-    }
-
-    const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-        setFormFields({ ...formFields, [e.currentTarget.name]: e.currentTarget.value });
     }
 
     const { message, status, isAuthenticated } = props.store.authData;
