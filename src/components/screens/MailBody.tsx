@@ -33,10 +33,14 @@ const MailBody: React.FC<IProps> = ({ selected, onReply, onDelete, onArchive }) 
     const renderReplies = () => {
         if (selected?.replies.length) {
             return selected.replies.map((reply: string, i) => (
-                <article className="row" key={i}>
-                    <ReactMarkdown source={reply} />
+                <>
+                    <article className="row" key={i}>
+                        <section className="col">
+                            <ReactMarkdown source={reply} />
+                        </section>
+                    </article>
                     <hr />
-                </article>
+                </>
             ))
         }
         return null;
@@ -44,7 +48,6 @@ const MailBody: React.FC<IProps> = ({ selected, onReply, onDelete, onArchive }) 
 
     const renderBody = () => (
         <article className="row">
-            <p>{selected?.id}</p>
             <section className="col">
                 <ReactMarkdown source={selected?.desc} />
             </section>
@@ -56,13 +59,13 @@ const MailBody: React.FC<IProps> = ({ selected, onReply, onDelete, onArchive }) 
         if (hasReplied) {
             return (
                 <>
-                    <article className="row">
-                        <section className="col">
-                            <button className="btn btn-success" onClick={handleSend}>Send</button>
+                    <article className="row mb-4">
+                        <section className="col mb-4">
+                            <button className="btn btn-success mr-4" onClick={handleSend}>Send</button>
                             <button className="btn btn-info" onClick={handleCancel}>Cancel</button>
                         </section>
                     </article>
-                    <article className="row">
+                    <article className="row mb-4">
                         <section className="col">
                             <textarea className="form-control" rows={4} value={reply} onChange={handleChange} />
                         </section>
@@ -75,10 +78,10 @@ const MailBody: React.FC<IProps> = ({ selected, onReply, onDelete, onArchive }) 
 
         return (
             <>
-                <article className="row">
-                    <section className="col">
-                        <button className="btn btn-success" onClick={handleReply}>Reply</button>
-                        <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
+                <article className="row mb-4">
+                    <section className="col mb-4">
+                        <button className="btn btn-success mr-4" onClick={handleReply}>Reply</button>
+                        <button className="btn btn-danger mr-4" onClick={handleDelete}>Delete</button>
                         <button className={`btn btn-${archived ? 'secondary' : 'primary'}`} onClick={handleArchive}>{`Archive${archived ? 'd' : ''}`}</button>
                     </section>
                 </article>

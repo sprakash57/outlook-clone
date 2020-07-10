@@ -35,7 +35,7 @@ export const fetchMails = () => async (dispatch: any) => {
 
 export const reply = (text: string, id: number) => (dispatch: any, getState: any) => {
     const { reducer: { mails } } = getState();
-    mails[id].replies.push(text);
+    mails[id].replies.unshift(text);
     dispatch({ type: LOAD_MAILS, payload: mails });
 }
 
@@ -48,6 +48,5 @@ export const deleteMail = (id: string) => (dispatch: any, getState: any) => {
 export const archiveMail = (id: string) => (dispatch: any, getState: any) => {
     let { reducer: { mails } } = getState();
     mails[+id].archived = !mails[+id].archived
-    console.log("*****", mails);
     dispatch({ type: LOAD_MAILS, payload: mails });
 }

@@ -28,3 +28,8 @@ body {
   padding-bottom: 1rem;
   cursor: pointer;
 }
+
+p > img {
+  display: flex;
+  margin: 20px auto;
+}

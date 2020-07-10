@@ -48,7 +48,7 @@ const Navbar: React.FC<IProps> = ({ store, logout, onSearch }) => {
                 </ul>
                 <form className="form-inline" onSubmit={handleSubmit}>
                     <Input type="search" name="search" placeholder="Search" />
-                    <img className="rounded-circle ml-3" src="https://i.pravatar.cc/50" alt="avatar" />
+                    <img className="rounded-circle ml-3" src="https://i.pravatar.cc/40" alt="avatar" />
                     <button type='button' className="btn btn-danger ml-3" onClick={handleExit}>Exit</button>
                 </form>
             </div>

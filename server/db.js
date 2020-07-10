@@ -2,7 +2,7 @@ module.exports = [
     {
         "id": "0",
         "title": "A React refresher",
-        "desc": "Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.  \n ![image](https://via.placeholder.com/250/8B4513/FFFFFF?text=Placeholder)",
+        "desc": "## Hola,  \nLorem Ipsum is simply dummy text of the **printing** and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.  \n ![image](https://via.placeholder.com/350/8B4513/FFFFFF?text=React)",
         "archived": true,
         "recent": false,
         "replies": []
@@ -10,7 +10,7 @@ module.exports = [
     {
         "id": "1",
         "title": "Python",
-        "desc": "Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.  \n ![image](https://via.placeholder.com/250/8B4513/FFFFFF?text=Placeholder)",
+        "desc": "## Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.  \n ![image](https://via.placeholder.com/250/8B4513/FFFFFF?text=Python)",
         "archived": false,
         "recent": false,
         "replies": []
@@ -26,7 +26,7 @@ module.exports = [
     {
         "id": "3",
         "title": "JavaScript",
-        "desc": "Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.  \n ![image](https://via.placeholder.com/250/8B4513/FFFFFF?text=Placeholder)",
+        "desc": "Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.",
         "archived": false,
         "recent": false,
         "replies": []
@@ -50,7 +50,7 @@ module.exports = [
     {
         "id": "6",
         "title": "Angular or Vue",
-        "desc": "Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.  \n ![image](https://via.placeholder.com/250/8B4513/FFFFFF?text=Placeholder)",
+        "desc": "Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.",
         "archived": false,
         "recent": true,
         "replies": []
@@ -58,7 +58,7 @@ module.exports = [
     {
         "id": "7",
         "title": "Node.js",
-        "desc": "Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.  \n ![image](https://via.placeholder.com/250/8B4513/FFFFFF?text=Placeholder)",
+        "desc": "##Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.",
         "archived": false,
         "recent": true,
         "replies": []
@@ -66,7 +66,7 @@ module.exports = [
     {
         "id": "8",
         "title": "Clean coding practices",
-        "desc": "Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.  \n ![image](https://via.placeholder.com/250/8B4513/FFFFFF?text=Placeholder)",
+        "desc": "##Hi Sunny,  \nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when a printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum.  \n ![image](https://via.placeholder.com/250/8B4513/FFFFFF?text=Placeholder)",
         "archived": true,
         "recent": false,
         "replies": []
