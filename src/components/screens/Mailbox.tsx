@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import Navbar from '../common/Navbar';
 import { connect } from 'react-redux';
@@ -18,6 +19,7 @@ type IProps = {
 const Mailbox: React.FC<IProps> = ({ store, fetchMails, reply, deleteMail, archiveMail }) => {
 
     const [selectedMail, setSelectedMail] = useState<IMails>();
+    const [serchedMail, setSearchedMail] = useState<IMails[]>();
 
     const handleSelect = (id: string) => {
         const mail = store.mails.find((mail: IMails) => mail.id === id);
@@ -26,20 +28,27 @@ const Mailbox: React.FC<IProps> = ({ store, fetchMails, reply, deleteMail, archi
     const handleReply = (text: string, id: number) => reply(text, id);
     const handleDelete = (id: string) => deleteMail(id);
     const handleArchive = (id: string) => archiveMail(id);
+    const handleSearch = (searched: IMails[]) => {
+        setSearchedMail(searched);
+    }
+
+    const renderMails = () => {
+        let renderEl = store.mails;
+        if (serchedMail?.length) renderEl = serchedMail;
+        return renderEl.map(mail => <MailItem key={mail.id} mail={mail} onSelect={handleSelect} />);
+    }
 
     useEffect(() => {
         fetchMails();
     }, []);
 
-    console.log('****', store.mails);
-
     return (
         <>
-            <Navbar />
+            <Navbar onSearch={handleSearch} />
             <main className='container-fluid'>
                 <section className="row">
                     <section className='col-3'>
-                        {store.mails.map(mail => <MailItem key={mail.id} mail={mail} onSelect={handleSelect} />)}
+                        {renderMails()}
                     </section>
                     <section className='col-9'>
                         <MailBody

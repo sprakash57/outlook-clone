@@ -4,11 +4,11 @@ import Input from '../common/Input';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch, AnyAction } from 'redux';
 import { logout } from '../../actions';
-import { IReducer, IState } from '../../interfaces';
+import { IReducer, IState, IMails } from '../../interfaces';
 
-type IProps = { logout(): void, store: IReducer }
+type IProps = { logout(): void, store: IReducer, onSearch(mails: IMails[]): void }
 
-const Navbar: React.FC<IProps> = ({ store, logout }) => {
+const Navbar: React.FC<IProps> = ({ store, logout, onSearch }) => {
 
     const recent = store.mails.filter(mail => mail.recent === true);
     const archived = store.mails.filter(mail => mail.archived === true)
@@ -16,6 +16,13 @@ const Navbar: React.FC<IProps> = ({ store, logout }) => {
     const handleExit = () => {
         logout();
         window.location.reload();
+    }
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const pattern = new RegExp(e.currentTarget.search.value, 'gi');
+        const searched = store.mails.filter((mail: IMails) => pattern.test(mail.title));
+        onSearch(searched);
     }
 
     return (
@@ -32,7 +39,7 @@ const Navbar: React.FC<IProps> = ({ store, logout }) => {
                         <div className="nav-link">Total {store.mails.length}</div>
                     </li>
                 </ul>
-                <form className="form-inline">
+                <form className="form-inline" onSubmit={handleSubmit}>
                     <Input type="search" name="search" placeholder="Search" />
                     <button type='button' className="btn btn-danger ml-3" onClick={handleExit}>Exit</button>
                 </form>
