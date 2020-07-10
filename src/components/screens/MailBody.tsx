@@ -4,13 +4,14 @@ import ReactMarkdown from 'react-markdown';
 import { IMails } from '../../interfaces';
 import Alert from '../common/Alert';
 
-type IProps = { selected: IMails, onReply(reply: string, id: number): void, onDelete(id: string): void };
+type IProps = { selected: IMails, onReply(reply: string, id: number): void, onDelete(id: string): void, onArchive(id: string): void };
 
-const MailBody: React.FC<IProps> = ({ selected, onReply, onDelete }) => {
+const MailBody: React.FC<IProps> = ({ selected, onReply, onDelete, onArchive }) => {
 
     const [hasReplied, setHasReplied] = useState(false);
     const [reply, setReply] = useState('');
     const [deleted, setDeleted] = useState(false);
+    const [archived, setArchived] = useState(selected?.archived);
 
     const handleReply = () => setHasReplied(true);
     const handleCancel = () => setHasReplied(false);
@@ -23,6 +24,10 @@ const MailBody: React.FC<IProps> = ({ selected, onReply, onDelete }) => {
     const handleDelete = () => {
         onDelete(selected.id);
         setDeleted(true);
+    }
+    const handleArchive = () => {
+        onArchive(selected.id);
+        setArchived(!archived);
     }
 
     const renderReplies = () => {
@@ -74,7 +79,7 @@ const MailBody: React.FC<IProps> = ({ selected, onReply, onDelete }) => {
                     <section className="col">
                         <button className="btn btn-success" onClick={handleReply}>Reply</button>
                         <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
-                        <button className="btn btn-primary">Archive</button>
+                        <button className={`btn btn-${archived ? 'secondary' : 'primary'}`} onClick={handleArchive}>{`Archive${archived ? 'd' : ''}`}</button>
                     </section>
                 </article>
                 {renderReplies()}
@@ -84,6 +89,7 @@ const MailBody: React.FC<IProps> = ({ selected, onReply, onDelete }) => {
     }
     useEffect(() => {
         setDeleted(false);
+        setArchived(selected?.archived);
     }, [selected?.id])
 
     return (

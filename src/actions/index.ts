@@ -44,3 +44,10 @@ export const deleteMail = (id: string) => (dispatch: any, getState: any) => {
     mails = mails.filter((mail: IMails) => mail.id !== id);
     dispatch({ type: DELETE, payload: mails });
 }
+
+export const archiveMail = (id: string) => (dispatch: any, getState: any) => {
+    let { reducer: { mails } } = getState();
+    mails[+id].archived = !mails[+id].archived
+    console.log("*****", mails);
+    dispatch({ type: LOAD_MAILS, payload: mails });
+}
