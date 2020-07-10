@@ -93,9 +93,9 @@ const MailBody: React.FC<IProps> = ({ selected, onReply, onDelete, onArchive }) 
     }, [selected?.id])
 
     return (
-        <>
+        <section className='container mt-3'>
             {renderContent()}
-        </>
+        </section>
     )
 }
 

@@ -25,22 +25,30 @@ const Navbar: React.FC<IProps> = ({ store, logout, onSearch }) => {
         onSearch(searched);
     }
 
+    const handleFilter = (name: string) => () => {
+        let searched = store.mails;
+        if (name === 'new') searched = recent;
+        else if (name === 'archived') searched = archived;
+        onSearch(searched);
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li className="nav-item active">
-                        <div className="nav-link">New {recent.length}</div>
+                        <button className="btn btn-primary" onClick={handleFilter('new')}>New: {recent.length}</button>
                     </li>
                     <li className="nav-item">
-                        <div className="nav-link">Archived {archived.length}</div>
+                        <button className="btn btn-primary" onClick={handleFilter('archived')}>Archived: {archived.length}</button>
                     </li>
                     <li className="nav-item">
-                        <div className="nav-link">Total {store.mails.length}</div>
+                        <button className="btn btn-primary" onClick={handleFilter('total')}>Total: {store.mails.length}</button>
                     </li>
                 </ul>
                 <form className="form-inline" onSubmit={handleSubmit}>
                     <Input type="search" name="search" placeholder="Search" />
+                    <img className="rounded-circle ml-3" src="https://i.pravatar.cc/50" alt="avatar" />
                     <button type='button' className="btn btn-danger ml-3" onClick={handleExit}>Exit</button>
                 </form>
             </div>
