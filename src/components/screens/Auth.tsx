@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Input from '../common/Input';
 import { connect } from 'react-redux';
 import { IState, IReducer } from '../../interfaces';
@@ -7,7 +7,7 @@ import { login } from '../../actions'
 import Alert from '../common/Alert';
 import { Redirect } from 'react-router-dom';
 
-interface IProps {
+type IProps = {
     login(email: string, password: string): void,
     store: IReducer
 }

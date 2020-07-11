@@ -7,6 +7,7 @@ import { fetchMails, reply, deleteMail, archiveMail } from '../../actions';
 import { bindActionCreators, Dispatch, AnyAction } from 'redux';
 import MailItem from './Mailtem';
 import MailBody from './MailBody';
+import { Redirect } from 'react-router-dom';
 
 type IProps = {
     store: IReducer,
@@ -41,6 +42,10 @@ const Mailbox: React.FC<IProps> = ({ store, fetchMails, reply, deleteMail, archi
     useEffect(() => {
         fetchMails();
     }, []);
+
+    if (store.authData.isAuthenticated) {
+        return <Redirect to='/' />
+    }
 
     return (
         <>

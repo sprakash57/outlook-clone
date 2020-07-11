@@ -13,7 +13,7 @@ const MailItem: React.FC<IProps> = ({ mail, onSelect }: IProps) => {
         <article className="row mail-item" onClick={handleClick}>
             <section className="col">
                 <h4>{mail.title}</h4>
-                <small>{mail.desc.substring(0, 50)}...</small>
+                <small>{mail.desc.substring(0, 80)}...</small>
             </section>
         </article>
     )

@@ -33,3 +33,18 @@ p > img {
   display: flex;
   margin: 20px auto;
 }
+
+.instructions {
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 1rem;
+  margin-top: 15px;
+  > h6 {
+      margin-bottom: 5px;
+      color: tomato;
+    }
+  > h1 {
+      text-decoration: underline;
+    }
+}
+ 
