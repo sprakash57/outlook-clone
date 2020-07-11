@@ -1,10 +1,9 @@
-import { LOGIN, LOAD_MAILS, LOGOUT, DELETE } from "../constants";
+import { LOGIN, LOAD_MAILS, LOGOUT } from "../constants";
 import { combineReducers } from "redux";
 
 const initState = {
     mails: [],
-    authData: { isAuthenticated: false, message: '', status: 500 },
-    deleted: false
+    authData: { isAuthenticated: false, message: '', status: 500 }
 }
 
 const reducer = (state = initState, action: any) => {
@@ -15,8 +14,6 @@ const reducer = (state = initState, action: any) => {
             return { ...state, authData: payload }
         case LOAD_MAILS:
             return { ...state, mails: payload }
-        case DELETE:
-            return { ...state, mails: payload, deleted: !state.deleted }
         default:
             return state;
     }

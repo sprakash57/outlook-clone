@@ -1,9 +1,7 @@
 import React from 'react';
-import { IMails } from '../../interfaces';
+import { IMailItem } from '../../interfaces';
 
-type IProps = { mail: IMails, onSelect(id: string): void }
-
-const MailItem: React.FC<IProps> = ({ mail, onSelect }: IProps) => {
+const MailItem: React.FC<IMailItem> = ({ mail, onSelect }) => {
 
     const handleClick = () => {
         onSelect(mail.id);

@@ -21,10 +21,14 @@ export interface IText {
 
 export interface IReducer {
     mails: IMails[],
-    authData: IAuth,
-    deleted: boolean
+    authData: IAuth
 }
 
 export interface IState {
     reducer: IReducer
+}
+
+export interface IMailItem {
+    mail: IMails,
+    onSelect(id: string): void
 }

@@ -1,4 +1,4 @@
-import { URL, LOGIN, LOGOUT, LOAD_MAILS, DELETE } from "../constants"
+import { URL, LOGIN, LOGOUT, LOAD_MAILS } from "../constants"
 import { IAuth, IMails } from "../interfaces";
 
 export const login = (email: string, password: string) => async (dispatch: any) => {
@@ -42,7 +42,7 @@ export const reply = (text: string, id: number) => (dispatch: any, getState: any
 export const deleteMail = (id: string) => (dispatch: any, getState: any) => {
     let { reducer: { mails } } = getState();
     mails = mails.filter((mail: IMails) => mail.id !== id);
-    dispatch({ type: DELETE, payload: mails });
+    dispatch({ type: LOAD_MAILS, payload: mails });
 }
 
 export const archiveMail = (id: string) => (dispatch: any, getState: any) => {
